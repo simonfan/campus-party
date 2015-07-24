@@ -1,0 +1,19 @@
+{
+  "name": "html",
+  "version": "0.0.0",
+  "homepage": "https://github.com/renansdias/campus-party",
+  "authors": [
+    "Renan Dias <renan.dias@fabricadeaplicativos.com.br>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}
