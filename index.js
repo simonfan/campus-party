@@ -9,7 +9,7 @@ global.containerHashes = [];
 
 app.use('/', express.static(path.join(__dirname, 'public', 'html')));
 
-app.get('/new', function(req, res) {
+app.post('/new', function(req, res) {
 	var cmd = 'docker run -dP --name campus' + global.containerId + ' renansdias/hello-mesos';
 	global.containerId++;
 
@@ -18,6 +18,10 @@ app.get('/new', function(req, res) {
 
 		global.containerHashes.push(stdout);
 		console.log(stdout);
+
+		res.json({
+			containerHash: stdout
+		});
 	});	
 });
 

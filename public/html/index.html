@@ -3,8 +3,17 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Campus Party</title>
+	<script src="bower_components/jquery/dist/jquery.js"></script>
 </head>
 <body>
-	<button>Create new container</button>
+	<button onclick="createNewContainer()">Create new container</button>
+
+	<script>
+		function createNewContainer() {
+			$.post('http://localhost:8000/new', function(data) {
+				alert('Container criado com sucess: ' + data.containerHash);
+			});
+		}
+	</script>
 </body>
 </html>
