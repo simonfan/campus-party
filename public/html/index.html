@@ -33,6 +33,9 @@
 
 		<button onclick="createNewContainer()">Create new container</button>
 
+		<a id="brackets-link"  target="_blank">editor</a>
+		<a id="app-link"  target="_blank">application</a>
+
 	</div>
 
 	<iframe id="brackets"></iframe>
@@ -59,10 +62,17 @@
 					.attr('src', host + ':' + data.ports['3101'])
 					.css('height', $window.height());
 
+				$('#brackets-link')
+					.attr('href', host + ':' + data.ports['3101']);
+
 
 				$('#app')
 					.attr('src', host + ':' + data.ports['3100'] + '/edited-project')
 					.css('height', $window.height());
+
+
+				$('#app-link')
+					.attr('href', host + ':' + data.ports['3100']);
 			});
 		}
 	</script>
