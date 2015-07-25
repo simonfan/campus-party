@@ -6,7 +6,7 @@ var exec = require('child_process').exec;
 // Globals
 global.containerId = 1;
 global.containerHashes = [];
-global.imageId = 'simonfan/campus';
+global.imageId = 'simonfan/campus-2';
 global.host = 'http://54.86.89.162';
 
 
