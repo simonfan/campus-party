@@ -4,14 +4,65 @@
 	<meta charset="UTF-8">
 	<title>Campus Party</title>
 	<script src="bower_components/jquery/dist/jquery.js"></script>
+
+	<style type="text/css">
+		iframe {
+			border: none;
+		}
+
+		#brackets {
+			float: left;
+			width: 70%;
+			height: 100%;
+
+			margin: 0 0 0 0;
+		}
+
+		#app {
+			float: left;
+			width: 30%;
+			height: 100%;
+
+			margin: 0 0 0 0;
+		}
+	</style>
 </head>
 <body>
-	<button onclick="createNewContainer()">Create new container</button>
+
+	<div>
+
+		<button onclick="createNewContainer()">Create new container</button>
+
+	</div>
+
+	<iframe id="brackets"></iframe>
+
+	<iframe id="app"></iframe>
+
 
 	<script>
 		function createNewContainer() {
-			$.post('http://54.86.89.162:8000/new', function(data) {
+
+			// http://54.86.89.162
+			// http://192.168.59.103
+			var host = 'http://54.86.89.162' 
+
+			$.post('http://localhost:8000/new', function(data) {
 				alert('Container criado com sucesso: ' + data.containerHash);
+
+
+				var $window = $(window);
+				// ports
+				console.log(data);
+
+				$('#brackets')
+					.attr('src', host + ':' + data.ports['3101'])
+					.css('height', $window.height());
+
+
+				$('#app')
+					.attr('src', host + ':' + data.ports['3100'] + '/edited-project')
+					.css('height', $window.height());
 			});
 		}
 	</script>
